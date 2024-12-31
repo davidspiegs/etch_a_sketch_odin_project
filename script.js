@@ -16,6 +16,16 @@ function createGrid(size) {
         square.classList.add('square');
         square.style.width = `${squareSize}px`;
         square.style.height = `${squareSize}px`;
+        // Add mouse event listeners to change color
+        square.addEventListener('mousedown', () => {
+            square.style.backgroundColor = 'black'; // Change color on mouse down
+        });
+
+        square.addEventListener('mouseover', (e) => {
+            if (e.buttons === 1) { // Check if the left mouse button is pressed
+                square.style.backgroundColor = 'black'; // Change color while dragging
+            }
+        });
         board.appendChild(square);
     }
 }
@@ -42,6 +52,14 @@ sizeInput.addEventListener('keypress', (e) => {
         updateGridSize();
     }
 });
+
+// Function to clear the grid - lazy and I just call the updateGridSize function
+function clearGrid() {
+    updateGridSize();
+}
+
+// Event listener for clear button
+clearButton.addEventListener('click', clearGrid);
 
 // Initialize with default 16x16 grid
 createGrid(16);
