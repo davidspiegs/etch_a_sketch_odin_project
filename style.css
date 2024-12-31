@@ -6,6 +6,7 @@ body {
     padding-top: 0rem;
     min-height: 100vh;
     margin: 0;
+    background: linear-gradient(135deg, #ffb3ba, #bae1ff, #baffc9);  /* Soft pastel gradient */
 }
 
 h1 {
@@ -149,4 +150,15 @@ h1 {
 .input-container:hover {
     border-color: #666;
     background: #fff;
+}
+
+/* Specific styling for the clear button */
+#clearButton {
+    background-color: #ff6b6b;
+    color: white;
+    border-color: #ff4747;
+}
+
+#clearButton:hover {
+    background-color: #ff4747;
 }

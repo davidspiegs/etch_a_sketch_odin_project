@@ -1,7 +1,6 @@
 // Get DOM elements
 const board = document.querySelector('.board');
 const clearButton = document.getElementById('clearButton');
-const newGridButton = document.getElementById('newGridButton');
 const setSizeButton = document.getElementById('setSizeButton');
 const sizeInput = document.querySelector('.input-container input');
 
