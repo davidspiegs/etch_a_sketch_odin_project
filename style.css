@@ -162,3 +162,72 @@ h1 {
 #clearButton:hover {
     background-color: #ff4747;
 }
+
+.color-picker {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 3px dashed #333;
+    border-radius: 8px;
+    background: #f8f8f8;
+}
+
+.picker-label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    color: #333;
+    margin: 0;
+    text-align: center;
+}
+
+.color-options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.color-option {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 3px solid #333;
+    cursor: pointer;
+    transition: transform 0.2s;
+    flex: 0 0 25px; /* This ensures the bubbles stay perfectly round */
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+}
+
+.color-option.selected {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.color-option.black {
+    background-color: black;
+}
+
+.color-option.red {
+    background-color: red;
+}
+
+.color-option.random {
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+}
+
+/* Add these new color classes */
+.color-option.blue {
+    background-color: #4169e1;
+}
+
+.color-option.green {
+    background-color: #32cd32;
+}
+
+.color-option.purple {
+    background-color: #8a2be2;
+}

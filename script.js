@@ -3,6 +3,8 @@ const board = document.querySelector('.board');
 const clearButton = document.getElementById('clearButton');
 const setSizeButton = document.getElementById('setSizeButton');
 const sizeInput = document.querySelector('.input-container input');
+const colorOptions = document.querySelectorAll('.color-option');
+let currentColor = 'black';
 
 
 // Create grid function (you already have this)
@@ -17,12 +19,12 @@ function createGrid(size) {
         square.style.height = `${squareSize}px`;
         // Add mouse event listeners to change color
         square.addEventListener('mousedown', () => {
-            square.style.backgroundColor = 'black'; // Change color on mouse down
+            square.style.backgroundColor = getCurrentColor();
         });
 
         square.addEventListener('mouseover', (e) => {
             if (e.buttons === 1) { // Check if the left mouse button is pressed
-                square.style.backgroundColor = 'black'; // Change color while dragging
+                square.style.backgroundColor = getCurrentColor();
             }
         });
         board.appendChild(square);
@@ -59,6 +61,26 @@ function clearGrid() {
 
 // Event listener for clear button
 clearButton.addEventListener('click', clearGrid);
+
+// Add after other event listeners
+colorOptions.forEach(option => {
+    option.addEventListener('click', () => {
+        // Remove selected class from all options
+        colorOptions.forEach(opt => opt.classList.remove('selected'));
+        // Add selected class to clicked option
+        option.classList.add('selected');
+        // Update current color
+        currentColor = option.dataset.color;
+    });
+});
+
+// Add this new function
+function getCurrentColor() {
+    if (currentColor === 'random') {
+        return `rgb(${Math.random() * 256},${Math.random() * 256},${Math.random() * 256})`;
+    }
+    return currentColor;
+}
 
 // Initialize with default 16x16 grid
 createGrid(16);
