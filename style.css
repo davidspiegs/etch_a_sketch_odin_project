@@ -1,0 +1,152 @@
+/* Center the entire content on the page */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0rem;
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+main {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* The container for your squares */
+.board {
+    display: flex;
+    flex-wrap: wrap;      /* Allows squares to wrap to the next "row" */
+    width: 600px;         /* Total width (and height) for the board */
+    height: 600px; 
+    border: 2px solid #000; 
+    background-color: #fff;
+    flex-shrink: 0; /* Prevents the board from shrinking */
+}
+
+.square {
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    flex: 0 0 auto; /* Don’t let squares grow or shrink */
+  }
+
+/* Basic button styling (optional) */
+.buttons,
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons button,
+.input-container button {
+    margin: 3px;          /* Reduced margin */
+    padding: 6px 10px;    /* Reduced padding */
+    cursor: pointer;
+}
+
+.controls {
+    position: absolute;
+    left: calc(50% + 320px);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 150px;
+}
+
+/* Update existing .buttons class */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Update existing .input-container class */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 3px dashed #333;
+    border-radius: 8px;
+    background: #f8f8f8;
+}
+
+.input-container::before {
+    content: "Change Grid Size:";
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.input-container input {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Make buttons and input fill their container width */
+.buttons button,
+.input-container button,
+.input-container input {
+    width: 100%;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+/* Arcade-style button styling */
+button, input {
+    border: 3px solid #333;
+    border-radius: 4px;
+    background: #f0f0f0;
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    box-shadow: 3px 3px 0px #333;
+    transition: all 0.1s ease;
+}
+
+button:hover {
+    background: #e0e0e0;
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0px #333;
+}
+
+button:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+/* Arcade-style title */
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0px rgba(51, 51, 51, 0.7);
+    color: #333;
+    font-size: 1.8rem;
+}
+
+/* Arcade-style board */
+.board {
+    box-shadow: 5px 5px 0px #333;
+}
+
+/* Make regular buttons more compact */
+.buttons button {
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Additional hover state for input container */
+.input-container:hover {
+    border-color: #666;
+    background: #fff;
+}
