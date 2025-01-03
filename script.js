@@ -11,6 +11,7 @@ let currentColor = 'black'; // Tracks which color is currently selected
 // The size parameter determines how many squares per side (size x size total squares)
 function createGrid(size) {
     board.innerHTML = ''; // Clear any existing squares
+    document.documentElement.style.setProperty('--grid-size', size);
     const squareSize = 600 / size; // Calculate size of each square (board is 600px wide)
     
     for (let i = 0; i < size * size; i++) {
