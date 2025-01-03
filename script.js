@@ -19,17 +19,36 @@ function createGrid(size) {
         square.style.width = `${squareSize}px`;
         square.style.height = `${squareSize}px`;
         
-        // Color square when mouse is first pressed down
+        // Mouse events (desktop)
         square.addEventListener('mousedown', () => {
             square.style.backgroundColor = getCurrentColor();
         });
-
-        // Color square when mouse moves over it while pressed (for continuous drawing)
         square.addEventListener('mouseover', (e) => {
-            if (e.buttons === 1) { // 1 means left mouse button is pressed
+            if (e.buttons === 1) {
                 square.style.backgroundColor = getCurrentColor();
             }
         });
+
+        // Touch events (mobile)
+        square.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevent scrolling while drawing
+            square.style.backgroundColor = getCurrentColor();
+        });
+        square.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // Prevent scrolling while drawing
+            // Get the touch position
+            const touch = e.touches[0];
+            // Find the square being touched
+            const touchedElement = document.elementFromPoint(
+                touch.clientX,
+                touch.clientY
+            );
+            // Color the square if it's part of the grid
+            if (touchedElement && touchedElement.classList.contains('square')) {
+                touchedElement.style.backgroundColor = getCurrentColor();
+            }
+        });
+
         board.appendChild(square);
     }
 }
