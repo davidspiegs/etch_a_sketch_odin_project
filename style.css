@@ -42,16 +42,33 @@ main {
     box-sizing: border-box;
     flex: 0 0 auto;
     transition: border-color 0.08s ease, border-width 0.08s ease;
-    -webkit-tap-highlight-color: transparent; /* Prevents tap highlight on iOS */
-    touch-action: none; /* Prevents default touch actions */
-    user-select: none; /* Prevents text selection */
-    -webkit-user-select: none; /* For Safari */
-    -webkit-touch-callout: none; /* Prevents long-press menu on iOS */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
 }
 
-.square:hover {
-    border: 2px solid #4169e1;
-    z-index: 1;
+/* Hover effect only for non-touch devices */
+@media (hover: hover) {
+    .square:hover {
+        border: 2px solid #4169e1;
+        z-index: 1;
+    }
+}
+
+/* Additional mobile-specific fixes */
+@media screen and (max-width: 768px) {
+    .square {
+        -webkit-tap-highlight-color: transparent !important;
+        outline: none !important;
+        border: 1px solid #ccc !important; /* Force border to stay consistent */
+    }
+    
+    .square:hover, .square:active {
+        border: 1px solid #ccc !important;
+        z-index: auto !important;
+    }
 }
 
 /* Basic button styling (optional) */
